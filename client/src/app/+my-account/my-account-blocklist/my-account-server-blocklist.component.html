@@ -1,0 +1,23 @@
+<div class="admin-sub-header">
+  <div i18n class="form-sub-title">Blocked instances</div>
+</div>
+
+<p-table
+  [value]="blockedAccounts" [lazy]="true" [paginator]="true" [totalRecords]="totalRecords" [rows]="rowsPerPage"
+  [sortField]="sort.field" [sortOrder]="sort.order" (onLazyLoad)="loadLazy($event)"
+>
+
+  <ng-template pTemplate="header">
+    <tr>
+      <th i18n>Instance</th>
+      <th i18n pSortableColumn="createdAt">Blocked at <p-sortIcon field="createdAt"></p-sortIcon></th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-serverBlock>
+    <tr>
+      <td>{{ serverBlock.serverBlocked.host }}</td>
+      <td>{{ serverBlock.createdAt }}</td>
+    </tr>
+  </ng-template>
+</p-table>

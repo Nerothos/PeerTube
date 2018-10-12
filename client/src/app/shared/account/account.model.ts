@@ -5,6 +5,8 @@ export class Account extends Actor implements ServerAccount {
   displayName: string
   description: string
   nameWithHost: string
+  blocked: boolean
+  serverBlocked: boolean
 
   userId?: number
 
@@ -15,5 +17,8 @@ export class Account extends Actor implements ServerAccount {
     this.description = hash.description
     this.userId = hash.userId
     this.nameWithHost = Actor.CREATE_BY_STRING(this.name, this.host)
+
+    this.blocked = false
+    this.serverBlocked = false
   }
 }
