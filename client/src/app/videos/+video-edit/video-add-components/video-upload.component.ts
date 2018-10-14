@@ -113,9 +113,9 @@ export class VideoUploadComponent extends VideoSend implements OnInit, OnDestroy
     const videofile = this.videofileInput.nativeElement.files[0] as File
     if (!videofile) return
 
-    // Cannot upload videos > 8GB for now
-    if (videofile.size > 8 * 1024 * 1024 * 1024) {
-      this.notificationsService.error(this.i18n('Error'), this.i18n('We are sorry but PeerTube cannot handle videos > 8GB'))
+    // Cannot upload videos > 50GB for now
+    if (videofile.size > 50 * 1024 * 1024 * 1024) {
+      this.notificationsService.error(this.i18n('Error'), this.i18n('We are sorry but PeerTube cannot handle videos > 50GB'))
       return
     }
 
